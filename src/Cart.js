@@ -24,10 +24,10 @@ const Cart = () => {
             <div>
               <h1>{cart.name}'s cart </h1>
               <h2>Items in cart</h2>
+              <hr />
               {cartItems}
               {/* <h2>Total</h2>
               {total} */}
-              <hr />
             </div>
           );
         }

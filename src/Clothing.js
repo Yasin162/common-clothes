@@ -30,13 +30,22 @@ const Clothing = props => {
 
           return (
             <div>
-              <h2>{clothing.name}</h2>
-              <img src={clothing.image} alt="" /> <aside />
-              <div>name of cart</div>
-              <form onSubmit={handleAddToCart} value={cartId}>
-                <select onChange={handleChange}>{eachCart}</select>
-                <input type="submit" value="add to cart" />
-              </form>
+              <aside>
+                <h2>
+                  {clothing.name} <br />
+                  <img src={clothing.image} alt="" />
+                </h2>
+                <h2>Name of cart</h2>
+                <form onSubmit={handleAddToCart} value={cartId}>
+                  <select onChange={handleChange}>{eachCart}</select>
+                  <input
+                    class="select-input"
+                    type="submit"
+                    value="add to cart"
+                  />
+                </form>
+              </aside>
+
               <h4>Price: ${clothing.price}</h4>
               <hr />
               <h3>Features</h3>
