@@ -10,8 +10,6 @@ const Cart = () => {
       {context => {
         if (context.carts.length === 0) {
           return <h5>Please wait...</h5>;
-        } else if (context.clothes.length === 0) {
-          return <h5>...No items in cart...</h5>;
         } else {
           const cart = context.carts.find(c => `${c.id}` === params.id);
           const cartItems = cart.items.map(i => (
@@ -19,7 +17,7 @@ const Cart = () => {
               <strong>{i.name}</strong> price: {i.price}
             </li>
           ));
-
+          console.log(context.carts);
           return (
             <div>
               <h1>{cart.name}'s cart </h1>

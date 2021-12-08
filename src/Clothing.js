@@ -7,18 +7,24 @@ const Clothing = props => {
   return (
     <MyConsumer>
       {context => {
-        // debugger;
-        const updateCart = context.updateCart;
-        // const itemToAdd = context.clothing;
         const handleChange = e => {
           setCartId(e.target.value);
         };
         const handleAddToCart = e => {
           e.preventDefault();
           const clothing = context.clothes.find(c => `${c.id}` === params.id);
-          const updatedClothing = { ...clothing, cart_id: cartId };
-          updateCart(updatedClothing);
+          const updatedCart = context.carts.find(c => `${c.id}` === cartId);
+          const updatedClothing = {
+            ...clothing,
+            cart: updatedCart,
+            cart_id: cartId,
+          };
+
+          console.log(updatedClothing);
+          // context.setCarts([...context.carts, updatedClothing]);
+          context.updateCart(updatedClothing);
         };
+
         const eachCart = context.carts.map(cart => {
           return <option value={cart.id}>{cart.name}</option>;
         });
